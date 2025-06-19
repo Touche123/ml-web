@@ -1,0 +1,89 @@
+﻿@page "/builder"
+@using ml_test.models
+@using ml_test.services
+@inject IWebHostEnvironment Env
+@inject MLService MlService
+
+<h3>Skapa träningsdata</h3>
+
+<InputFile OnChange="HandleImages" multiple MaxFileSize="52428800" />
+<input type="text" @bind="label" placeholder="Ange etikett (t.ex. Circle)" class="form-control mt-2" />
+
+<button @onclick="AddToDataset" class="btn btn-primary mt-2" disabled="@(!tempFeatures.Any() || string.IsNullOrWhiteSpace(label))">
+    ➕ Lägg till
+</button>
+
+<button @onclick="SaveJson" class="btn btn-success mt-2" disabled="@(allInputs.Count == 0)">
+    💾 Spara till training_data.json
+</button>
+
+<p>@status</p>
+
+@if (allInputs.Count > 0)
+{
+    <p><strong>Totalt exempel:</strong> @allInputs.Count</p>
+}
+
+@code {
+    private List<float[]> tempFeatures = new();       // features tillfälligt
+    private List<ModelInput> allInputs = new();       // alla exempel
+    private string label = "";
+    private string status = "";
+
+    private async Task HandleImages(InputFileChangeEventArgs e)
+    {
+        tempFeatures.Clear();
+
+        foreach (var file in e.GetMultipleFiles())
+        {
+            try
+            {
+                var tempPath = Path.Combine(Env.WebRootPath, "temp", file.Name);
+                Directory.CreateDirectory(Path.GetDirectoryName(tempPath)!);
+
+                using (var fs = new FileStream(tempPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    await file.OpenReadStream(maxAllowedSize: 20 * 1024 * 1024).CopyToAsync(fs);
+                }
+
+                var features = MlService.ExtractFeaturesFromImage(tempPath);
+                tempFeatures.Add(features);
+
+                File.Delete(tempPath);
+            }
+            catch (Exception ex)
+            {
+                status = $"Fel: {ex.Message}";
+            }
+        }
+
+        status = $"{tempFeatures.Count} bilder inlästa. Skriv en etikett och klicka på 'Lägg till'.";
+    }
+
+    private void AddToDataset()
+    {
+        if (!string.IsNullOrWhiteSpace(label) && tempFeatures.Count > 0)
+        {
+            foreach (var features in tempFeatures)
+            {
+                allInputs.Add(new ModelInput { ImageFeatures = features, Label = label });
+            }
+
+            status = $"✅ Lade till {tempFeatures.Count} exempel med etiketten '{label}'.";
+            tempFeatures.Clear();
+            label = "";
+        }
+    }
+
+    private void SaveJson()
+    {
+        var path = Path.Combine(Env.WebRootPath, "data", "training_data.json");
+        Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+
+        var json = System.Text.Json.JsonSerializer.Serialize(allInputs, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(path, json);
+
+        status = $"💾 Sparade {allInputs.Count} exempel till training_data.json";
+        allInputs.Clear();
+    }
+}

@@ -1,0 +1,82 @@
+﻿@page "/upload"
+
+@using ml_test.services
+@inject IWebHostEnvironment Env
+@inject MLService MlService
+@inject IJSRuntime JS
+
+<h3>Träna bildmodell från JSON</h3>
+<InputFile OnChange="HandleJsonUpload" accept=".json" />
+<p>@message</p>
+<button @onclick="Train" class="btn btn-primary mt-2">Träna modell</button>
+
+@if (MlService.ConfusionMatrix != null)
+{
+    <h4>Träffsäkerhet: @(MlService.Accuracy * 100)%</h4>
+    <h5>Förväxlingsmatris:</h5>
+    <table class="table">
+        @for (int i = 0; i < MlService.ConfusionMatrix.Counts.Count; i++)
+        {
+            <tr>
+                @foreach (var val in MlService.ConfusionMatrix.Counts[i])
+                {
+                    <td>@val</td>
+                }
+            </tr>
+        }
+    </table>
+}
+
+@code {
+    private string message = string.Empty;
+    private string? uploadedJson;
+    private ElementReference inputRef;
+    private bool jsonReady = false;
+
+    private async Task HandleJsonUpload(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            var file = e.File;
+            if (!file.Name.EndsWith(".json"))
+            {
+                message = "Endast JSON-filer accepteras.";
+                return;
+            }
+
+            using var reader = new StreamReader(file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024));
+            uploadedJson = await reader.ReadToEndAsync();
+
+            if (!string.IsNullOrEmpty(uploadedJson))
+            {
+                jsonReady = true;
+                message = $"Filen '{file.Name}' är laddad. Klicka på 'Träna modell' för att fortsätta.";
+            }
+            else
+            {
+                message = "Filen kunde inte läsas.";
+            }
+        }
+        catch (Exception ex)
+        {
+            message = $"Fel vid uppladdning: {ex.Message}";
+        }
+    }
+
+    private void Train()
+    {
+        if (!string.IsNullOrEmpty(uploadedJson))
+        {
+            try
+            {
+                MlService.TrainImageModel(uploadedJson);
+                message = "Modellträning slutförd.";
+                jsonReady = false;
+            }
+            catch (Exception ex)
+            {
+                message = $"Fel vid träning: {ex.Message}";
+            }
+        }
+    }
+}

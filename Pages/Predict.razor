@@ -1,0 +1,49 @@
+﻿@page "/predict"
+
+@using ml_test.models
+@using ml_test.services
+@inject MLService MlService
+@inject IWebHostEnvironment Env
+
+<h3>Testa bildmodell</h3>
+<InputFile OnChange="HandleImage" />
+<button @onclick="PredictImage">Prediktera</button>
+
+@if (result is not null)
+{
+    <p>Prediktion: @result.PredictedLabel</p>
+    <div style="max-width: 600px; margin: auto;">
+        <canvas id="chart"></canvas>
+    </div>
+}
+
+@code {
+    private ModelOutput? result;
+    private string? imagePath;
+
+    private async Task HandleImage(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        var path = Path.Combine(Env.WebRootPath, "data", file.Name);
+        using var fs = new FileStream(path, FileMode.Create);
+        await file.OpenReadStream(maxAllowedSize: 20 * 1024 * 1024).CopyToAsync(fs);
+        imagePath = path;
+    }
+
+    private async Task PredictImage()
+    {
+        if (string.IsNullOrEmpty(imagePath)) return;
+
+        var features = MlService.ExtractFeaturesFromImage(imagePath);
+        result = MlService.PredictImageOnly(features);
+
+        StateHasChanged();
+
+        await Task.Delay(100); // Vänta en stund för att säkerställa att DOM är uppdaterad
+
+        var labels = new[] { "Label1", "Label2", "Label3" }; // Anpassa till dina labels
+        await JS.InvokeVoidAsync("renderChart", labels, result.Score);
+    }
+
+    [Inject] private IJSRuntime JS { get; set; } = default!;
+}
