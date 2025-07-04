@@ -14,6 +14,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<MLService>();
+builder.Services.AddSingleton<TemplateMatchService>();
 
 builder.Services.Configure<FormOptions>(options =>
 {

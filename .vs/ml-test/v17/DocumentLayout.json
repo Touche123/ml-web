@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Dev\\web\\ml\\ml-test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|c:\\dev\\web\\ml\\ml-test\\pages\\predict.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|solutionrelative:pages\\predict.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|c:\\dev\\web\\ml\\ml-test\\services\\templatematchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|solutionrelative:services\\templatematchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|c:\\dev\\web\\ml\\ml-test\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|solutionrelative:pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|c:\\dev\\web\\ml\\ml-test\\wwwroot\\js\\overlay.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|solutionrelative:wwwroot\\js\\overlay.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|c:\\dev\\web\\ml\\ml-test\\pages\\index.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|solutionrelative:pages\\index.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|c:\\dev\\web\\ml\\ml-test\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|solutionrelative:shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|c:\\dev\\web\\ml\\ml-test\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|solutionrelative:app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBA28232-2EC0-4092-BDA1-D77F1588BCC8}|ml-test.csproj|c:\\dev\\web\\ml\\ml-test\\pages\\trainingdatabuilder.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -22,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,33 +50,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Predict.razor",
-              "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\Pages\\Predict.razor",
-              "RelativeDocumentMoniker": "Pages\\Predict.razor",
-              "ToolTip": "C:\\Dev\\web\\ml\\ml-test\\Pages\\Predict.razor",
-              "RelativeToolTip": "Pages\\Predict.razor",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAABsAAAA9AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Index.razor.css",
+              "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\Pages\\Index.razor.css",
+              "RelativeDocumentMoniker": "Pages\\Index.razor.css",
+              "ToolTip": "C:\\Dev\\web\\ml\\ml-test\\Pages\\Index.razor.css",
+              "RelativeToolTip": "Pages\\Index.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-04T09:39:47.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\App.razor",
+              "RelativeDocumentMoniker": "App.razor",
+              "ToolTip": "C:\\Dev\\web\\ml\\ml-test\\App.razor",
+              "RelativeToolTip": "App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-19T13:43:43.06Z",
+              "WhenOpened": "2025-07-04T09:16:33.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\Shared\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Shared\\MainLayout.razor",
+              "ToolTip": "C:\\Dev\\web\\ml\\ml-test\\Shared\\MainLayout.razor",
+              "RelativeToolTip": "Shared\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T09:16:19.104Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "overlay.js",
+              "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\wwwroot\\js\\overlay.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\overlay.js",
+              "ToolTip": "C:\\Dev\\web\\ml\\ml-test\\wwwroot\\js\\overlay.js",
+              "RelativeToolTip": "wwwroot\\js\\overlay.js",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-04T09:16:00.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "Pages\\Index.razor",
+              "ToolTip": "C:\\Dev\\web\\ml\\ml-test\\Pages\\Index.razor",
+              "RelativeToolTip": "Pages\\Index.razor",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T08:54:49.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TemplateMatchService.cs",
+              "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\services\\TemplateMatchService.cs",
+              "RelativeDocumentMoniker": "services\\TemplateMatchService.cs",
+              "ToolTip": "C:\\Dev\\web\\ml\\ml-test\\services\\TemplateMatchService.cs",
+              "RelativeToolTip": "services\\TemplateMatchService.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAnwHwAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T08:46:56.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Dev\\web\\ml\\ml-test\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-19T13:28:18.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "TrainingDataBuilder.razor",
               "DocumentMoniker": "C:\\Dev\\web\\ml\\ml-test\\Pages\\TrainingDataBuilder.razor",
               "RelativeDocumentMoniker": "Pages\\TrainingDataBuilder.razor",
